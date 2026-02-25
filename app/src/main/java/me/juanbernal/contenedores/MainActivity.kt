@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,6 +18,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -89,3 +93,83 @@ fun ContentScreen() {
     }
 }
 
+@Preview(showSystemUi = true)
+@Composable
+fun CheckPreview() {
+
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        Text(text = "✅", fontSize = 100.sp)
+
+        Text(
+            text = "All tasks completed",
+            fontWeight = FontWeight.Bold
+        )
+
+        Text(
+            text = "Nice work!",
+            color = Color.Gray
+        )
+    }
+}
+
+
+@Preview(showSystemUi = true)
+@Composable
+fun Cuandrate() {
+
+    Column(modifier = Modifier.fillMaxSize()) {
+
+        // Primera Fila
+        Row(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .background(Color.Red)
+                    .weight(1f)
+                    .fillMaxHeight()
+            ) {
+                Text(text = "texto")
+            }
+
+
+
+            Column(
+                modifier = Modifier
+                    .background(Color.Yellow)
+                    .weight(1f)
+                    .fillMaxHeight()
+            ) {
+                Text(text = "texto")
+                Text(text = "texto")
+            }
+        }
+
+
+        Row(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .background(Color.Cyan)
+                    .weight(1f)
+                    .fillMaxHeight()
+            ) {
+
+            }
+
+
+
+            Column(
+                modifier = Modifier
+                    .background(Color.Magenta)
+                    .weight(1f)
+                    .fillMaxHeight()
+            ) {
+                Text(text = "texto")
+                Text(text = "texto")
+            }
+        }
+    }
+}
